@@ -60,14 +60,21 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="99">
+        android:gravity="center_horizontal">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Init DB"
-            android:onClick="onClick_Init"
-            android:layout_weight="33"/>
+            android:onClick="onClick_Init"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="99">
 
         <Button
             android:layout_width="wrap_content"
@@ -80,7 +87,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Batch Index"
-            android:onClick="onClick_IndexAlt"
+            android:onClick="onClick_IndexBatch"
+            android:layout_weight="33"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Optimized Index"
+            android:onClick="onClick_IndexOptimized"
             android:layout_weight="33"/>
 
     </LinearLayout>

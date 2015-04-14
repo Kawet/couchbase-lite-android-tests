@@ -46,11 +46,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClick_Index(View v) {
-        index(false);
+        index(1);
     }
 
-    public void onClick_IndexAlt(View v) {
-        index(true);
+    public void onClick_IndexBatch(View v) {
+        index(2);
+    }
+
+    public void onClick_IndexOptimized(View v) {
+        index(3);
     }
 
     public void initDb() {
@@ -116,7 +120,7 @@ public class MainActivity extends ActionBarActivity {
         }.execute();
     }
 
-    private void index(final boolean alt) {
+    private void index(final int type) {
         textView.setText("Updating view");
         new AsyncTask<Void, Void, Void>() {
             private long ms;
@@ -142,10 +146,12 @@ public class MainActivity extends ActionBarActivity {
                     view.deleteIndex();
                     long start = System.currentTimeMillis();
                     Log.d("UpdateView", "START INDEXING VIEW");
-                    if (alt)
+                    if (type == 1)
+                        view.updateIndex();
+                    else if(type == 2)
                         view.updateIndex(200);
                     else
-                        view.updateIndex();
+                        view.updateIndexOptimized();
                     long end = System.currentTimeMillis();
                     Log.d("UpdateView", "STOP INDEXING VIEW");
                     Log.d("UpdateView", (end - start) + "ms");
